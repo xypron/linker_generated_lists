@@ -9,14 +9,13 @@ struct data {
 	char c;
 };
 
-list_start(struct data, mylist);
-list_end(struct data, mylist);
+LIST(struct data, mylist);
+LIST(char, letters);
+
 list_entry(struct data, mylist, item1) = {1, .1, 'a'};
 list_entry(struct data, mylist, item2) = {2, .2, 'b'};
 list_entry(struct data, mylist, item3) = {3, .3, 'c'};
 
-list_start(char, letters);
-list_end(char, letters);
 list_entry(char, letters, c1) = 'x';
 list_entry(char, letters, c2) = 'y';
 list_entry(char, letters, c3) = 'z';

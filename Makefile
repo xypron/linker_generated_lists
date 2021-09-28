@@ -11,4 +11,5 @@ all:
 	/usr/lib/x86_64-linux-gnu/crtn.o \
 	-dynamic-linker /lib64/ld-linux-x86-64.so.2
 
-
+clean:
+	rm -f test.o test

@@ -16,14 +16,14 @@
 	type \
 	__attribute__((section("opensbilist_"#list"_2_"#item))) \
 	__attribute__((unused)) \
-	__attribute__((__aligned__(1))) \
+	__attribute__((__aligned__(__alignof__(type)))) \
 	opensbilist_##list##_0_##item
 
 #define list_start(type, list) \
 	type \
 	__attribute__((section("opensbilist_"#list"_1_"))) \
 	__attribute__((unused)) \
-	__attribute__((__aligned__(16))) \
+	__attribute__((__aligned__(__alignof__(type)))) \
 	opensbilist_##list##_0_##start[0]
 
 #define list_end(type, list) \

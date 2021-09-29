@@ -13,3 +13,6 @@ all:
 
 clean:
 	rm -f test.o test
+
+check:
+	./test

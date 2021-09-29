@@ -1,7 +1,10 @@
 
 all:
 	gcc -I. -g -c test.c
-	ld -o test test.o \
+	gcc -I. -g -c srst1.c
+	gcc -I. -g -c srst2.c
+	gcc -I. -g -c srst3.c
+	ld -o test test.o srst1.o srst2.o srst3.o \
 	-T test.lds \
 	--print-map \
 	-L /usr/lib/gcc/x86_64-linux-gnu/11/ \

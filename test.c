@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include "list.h"
+#include "srst.h"
 
 struct data {
 	int a;
@@ -11,6 +12,7 @@ struct data {
 
 LIST(struct data, mylist);
 LIST(char, letters);
+LIST(struct srst_ops, srst_driver);
 
 list_entry(struct data, mylist, item1) = {1, .1, 'a'};
 list_entry(struct data, mylist, item2) = {2, .2, 'b'};
@@ -27,13 +29,24 @@ int main()
 
 	start = list_get_start(struct data, mylist);
 	end = list_get_end(struct data, mylist);
-	printf("%p %p\n", start, end);
 
+	printf("\n");
 	for (item = start; item < end; ++item)
 		printf("%d, %f, %c\n", item->a, item->b, item->c);
 
-	for (char *c = list_get_start(char, letters); c < list_get_end(char, letters); ++c)
+	printf("\n");
+	for (char *c = list_get_start(char, letters);
+	     c < list_get_end(char, letters); ++c)
 		printf("%c\n", *c);
+
+	for (struct srst_ops *drv =
+		list_get_start(struct srst_ops, srst_driver);
+	     drv < list_get_end(struct srst_ops, srst_driver); ++drv) {
+		printf("\n");
+		printf("%s->check() returned %d\n",
+		       drv->name, drv->check(1, 2));
+		drv->execute(1, 2);
+	}
 
 	return 0;
 }

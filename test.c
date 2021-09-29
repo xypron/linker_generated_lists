@@ -15,13 +15,13 @@ LIST(char, letters);
 LIST(struct srst_ops, srst_driver);
 
 list_entry(struct data, mylist, item1) = {1, .1, 'a'};
-list_entry(struct data, mylist, item2) = {2, .2, 'b'};
 list_entry(struct data, mylist, item3) = {3, .3, 'c'};
+list_entry(struct data, mylist, item4) = {4, .4, 'd'};
+list_entry(struct data, mylist, item2) = {2, .2, 'b'};
 
-list_entry(char, letters, c1) = 'x';
 list_entry(char, letters, c2) = 'y';
 list_entry(char, letters, c3) = 'z';
-list_entry(char, letters, c0) = 'w';
+list_entry(char, letters, c1) = 'x';
 
 int main()
 {
